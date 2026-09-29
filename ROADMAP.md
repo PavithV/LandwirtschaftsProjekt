@@ -14,10 +14,10 @@ Quelle der Aufgabenstellung: `Beschreibung_Domaenen_Projekt_2_ Vorabversion_2026
 - [x] Rohdaten committet: `train.csv`, `test.csv`, Aufgaben-docx
 - [x] Aufgabenstellung gelesen und verstanden
 - [x] Grobe Struktur der CSVs gesichtet (Shape, Spalten, Klassenverteilung — siehe unten)
-- [ ] Vertiefte explorative Datenanalyse
-- [ ] Data-Preparation-Pipeline
-- [ ] Baseline-Modell
-- [ ] Kurzreport Problemverständnis (Meilenstein 1)
+- [x] Vertiefte explorative Datenanalyse (`eda.ipynb`)
+- [x] Data-Preparation-Pipeline (Preprocessing-Entscheidungen in `baseline_model.ipynb` / `MILESTONE1_REPORT.md`)
+- [x] Baseline-Modell (`baseline_model.ipynb` — RandomForest, Crop Balanced Accuracy 0.778, Stage 0.769)
+- [x] Kurzreport Problemverständnis (`MILESTONE1_REPORT.md`)
 
 ## Datensatz-Fakten
 - `train.csv`: 5591 Zeilen × 204 Spalten — `AEZ`, `Month`, `Crop`, `Stage`, ~198 Spektralband-Features (`X427`…`X2395`), `id`
@@ -31,17 +31,17 @@ Quelle der Aufgabenstellung: `Beschreibung_Domaenen_Projekt_2_ Vorabversion_2026
 | Status | Datum | Meilenstein | Inhalt |
 |--------|-------|-------------|--------|
 | ✅ | 28.09.2026 | Kickoff Workshop | Aufgabenstellung, Bewertungsrahmen, Datenübersicht, Start Team-Workflow |
-| ⬜ | 08.10.2026 | Meilenstein 1 — Domain & Baseline | Kurzreport Problemverständnis/Data Understanding, erste Preprocessing-Pipeline, erster Baseline-Klassifikator (70/30 Split), Code + Demo-Run |
+| 🔶 | 08.10.2026 | Meilenstein 1 — Domain & Baseline | Kurzreport Problemverständnis/Data Understanding, erste Preprocessing-Pipeline, erster Baseline-Klassifikator (70/30 Split), Code + Demo-Run — **Artefakte fertig** (`eda.ipynb`, `baseline_model.ipynb`, `MILESTONE1_REPORT.md`), Abgabe/Review beim Dozenten steht noch aus |
 | ⬜ | 15.10.2026 | Meilenstein 2 — Modellreife & Validierung | Optimierte Preprocessing-Pipeline, verbessertes Modell mit sauberer Validierung, Vergleich ggü. Baseline, Fehleranalyse (Confusion Matrix pro Klasse) |
 | ⬜ | 22.10.2026 | Meilenstein 3 — Dateninput minimieren | Studie zur Datenreduktion inkl. Trade-off-Analyse "Qualität vs. Input"; Bonus: Feature-Importance/Explainability (SHAP o.ä.) |
 | ⬜ | 31.10.2026 | Abgabe | Reproduzierbarer Code (README, requirements), Abschlussbericht, Modellkarte, Vorhersage-CSV auf Validierungsdaten, Arbeitszeit-Doku, Team-Beitrags-Zusammenfassung |
 | ⬜ | November | Abschlusspräsentation & Einzelgespräche | 10–15 Min Pitch + Q&A, danach Einzelreflexion |
 
-## Nächste Schritte (Fokus: Meilenstein 1, 08.10.2026)
-1. Explorative Datenanalyse vertiefen: fehlende Werte, Ausreißer, Klassenüberschneidungen, spektrale Signaturen je Crop/Stage visualisieren
-2. Data-Preparation-Entscheidungen treffen und dokumentieren (fehlende Werte, Normalisierung, ggf. Bandauswahl/Glättung)
-3. Modellierungsansatz für die Baseline festlegen (siehe offene Entscheidungen) und einfaches Baseline-Modell mit 70/30 Split trainieren
-4. Kurzreport zum Problemverständnis schreiben
+## Nächste Schritte (Fokus: Meilenstein 2, 15.10.2026)
+1. Modellierungsstrategien vergleichen: hierarchisch vs. gemeinsame Zielklasse vs. separate Modelle (Baseline nutzt separate Modelle) — siehe offene Entscheidungen
+2. Preprocessing-Pipeline optimieren (Hyperparameter-Tuning, Cross-Validation statt einfachem Split)
+3. Verbessertes Modell mit sauberer Validierung, Vergleich ggü. Baseline (Balanced Accuracy 0.778/0.769, siehe `MILESTONE1_REPORT.md`)
+4. Detaillierte Fehleranalyse (Confusion Matrix pro Klasse, welche Klassen werden verwechselt und warum)
 
 ## Offene Entscheidungen
 - Klassifikationsstrategie: hierarchisch (erst Crop, dann Stage) vs. gemeinsame Zielklasse (z. B. `corn_early`) vs. zwei separate Modelle
