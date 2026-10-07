@@ -9,7 +9,10 @@ Klassifikation landwirtschaftlicher Kulturpflanzen und ihrer Wachstumsstadien an
 
 Quelle der Aufgabenstellung: `Beschreibung_Domaenen_Projekt_2_ Vorabversion_2026_27(1).docx` im Repo-Root.
 
-## Aktueller Stand (2026-09-29)
+## Aktueller Stand (2026-10-07)
+- [x] Meilenstein 2: optimierte Preprocessing-Pipeline (Spektral-Interpolation, Crop_Stage-Stratifizierung), 5-fach CV, Modellvergleich RandomForest vs. HistGradientBoosting, Fehleranalyse (`milestone2_model.ipynb`, `MILESTONE2_REPORT.md`) — Crop Balanced Accuracy 0.877 (M1: 0.778), Stage 0.874 (M1: 0.769)
+
+## Vorheriger Stand (2026-09-29)
 - [x] Repo initialisiert und mit GitHub verknüpft (`https://github.com/PavithV/LandwirtschaftsProjekt.git`, Branch `main`)
 - [x] Rohdaten committet: `train.csv`, `test.csv`, Aufgaben-docx
 - [x] Aufgabenstellung gelesen und verstanden
@@ -32,16 +35,16 @@ Quelle der Aufgabenstellung: `Beschreibung_Domaenen_Projekt_2_ Vorabversion_2026
 |--------|-------|-------------|--------|
 | ✅ | 28.09.2026 | Kickoff Workshop | Aufgabenstellung, Bewertungsrahmen, Datenübersicht, Start Team-Workflow |
 | 🔶 | 08.10.2026 | Meilenstein 1 — Domain & Baseline | Kurzreport Problemverständnis/Data Understanding, erste Preprocessing-Pipeline, erster Baseline-Klassifikator (70/30 Split), Code + Demo-Run — **Artefakte fertig** (`eda.ipynb`, `baseline_model.ipynb`, `MILESTONE1_REPORT.md`), Abgabe/Review beim Dozenten steht noch aus |
-| ⬜ | 15.10.2026 | Meilenstein 2 — Modellreife & Validierung | Optimierte Preprocessing-Pipeline, verbessertes Modell mit sauberer Validierung, Vergleich ggü. Baseline, Fehleranalyse (Confusion Matrix pro Klasse) |
+| 🔶 | 15.10.2026 | Meilenstein 2 — Modellreife & Validierung | Optimierte Preprocessing-Pipeline, verbessertes Modell mit sauberer Validierung, Vergleich ggü. Baseline, Fehleranalyse (Confusion Matrix pro Klasse) — **Artefakte fertig** (`milestone2_model.ipynb`, `MILESTONE2_REPORT.md`), Abgabe/Review beim Dozenten steht noch aus |
 | ⬜ | 22.10.2026 | Meilenstein 3 — Dateninput minimieren | Studie zur Datenreduktion inkl. Trade-off-Analyse "Qualität vs. Input"; Bonus: Feature-Importance/Explainability (SHAP o.ä.) |
 | ⬜ | 31.10.2026 | Abgabe | Reproduzierbarer Code (README, requirements), Abschlussbericht, Modellkarte, Vorhersage-CSV auf Validierungsdaten, Arbeitszeit-Doku, Team-Beitrags-Zusammenfassung |
 | ⬜ | November | Abschlusspräsentation & Einzelgespräche | 10–15 Min Pitch + Q&A, danach Einzelreflexion |
 
-## Nächste Schritte (Fokus: Meilenstein 2, 15.10.2026)
-1. Modellierungsstrategien vergleichen: hierarchisch vs. gemeinsame Zielklasse vs. separate Modelle (Baseline nutzt separate Modelle) — siehe offene Entscheidungen
-2. Preprocessing-Pipeline optimieren (Hyperparameter-Tuning, Cross-Validation statt einfachem Split)
-3. Verbessertes Modell mit sauberer Validierung, Vergleich ggü. Baseline (Balanced Accuracy 0.778/0.769, siehe `MILESTONE1_REPORT.md`)
-4. Detaillierte Fehleranalyse (Confusion Matrix pro Klasse, welche Klassen werden verwechselt und warum)
+## Nächste Schritte (Fokus: Meilenstein 3, 22.10.2026)
+1. Studie zur Datenreduktion (Feature-Selektion/PCA) inkl. Trade-off-Analyse "Qualität vs. Input"
+2. Bonus: Feature-Importance/Explainability (SHAP o. ä.) für die M2-Gewinnermodelle (HistGradientBoosting)
+3. Modellierungsstrategien vergleichen: hierarchisch vs. gemeinsame Zielklasse vs. separate Modelle (bisher weiterhin zwei separate Modelle) — siehe offene Entscheidungen
+4. Resampling-Strategien für `rice`/`Harvest`-Kombinationen prüfen (bisher nur `class_weight`)
 
 ## Offene Entscheidungen
 - Klassifikationsstrategie: hierarchisch (erst Crop, dann Stage) vs. gemeinsame Zielklasse (z. B. `corn_early`) vs. zwei separate Modelle
