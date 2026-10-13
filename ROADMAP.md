@@ -9,8 +9,9 @@ Klassifikation landwirtschaftlicher Kulturpflanzen und ihrer Wachstumsstadien an
 
 Quelle der Aufgabenstellung: `Beschreibung_Domaenen_Projekt_2_ Vorabversion_2026_27(1).docx` im Repo-Root.
 
-## Aktueller Stand (2026-10-07)
-- [x] Meilenstein 2: optimierte Preprocessing-Pipeline (Spektral-Interpolation, Crop_Stage-Stratifizierung), 5-fach CV, Modellvergleich RandomForest vs. HistGradientBoosting, Fehleranalyse (`milestone2_model.ipynb`, `MILESTONE2_REPORT.md`) — Crop Balanced Accuracy 0.877 (M1: 0.778), Stage 0.874 (M1: 0.769)
+## Aktueller Stand (2026-10-13)
+- [x] Meilenstein 2 erweitert: Feature Engineering (Indizes inkl. Red-Edge/PSRI, Gradienten pro nm, Statistiken; aus `features.ipynb` übernommen/überarbeitet), MLP, Train-vs-CV-Gap, Strategievergleich separat vs. gemeinsames Label — Holdout Crop 0.889, Stage 0.888 (HGB + FE); gemeinsames MLP Crop 0.893 / Stage 0.874
+- [x] Meilenstein 2 (2026-10-07): optimierte Preprocessing-Pipeline (Spektral-Interpolation, Crop_Stage-Stratifizierung), 5-fach CV, Modellvergleich RandomForest vs. HistGradientBoosting, Fehleranalyse (`milestone2_model.ipynb`, `MILESTONE2_REPORT.md`) — Crop Balanced Accuracy 0.877 (M1: 0.778), Stage 0.874 (M1: 0.769)
 
 ## Vorheriger Stand (2026-09-29)
 - [x] Repo initialisiert und mit GitHub verknüpft (`https://github.com/PavithV/LandwirtschaftsProjekt.git`, Branch `main`)
@@ -43,7 +44,7 @@ Quelle der Aufgabenstellung: `Beschreibung_Domaenen_Projekt_2_ Vorabversion_2026
 ## Nächste Schritte (Fokus: Meilenstein 3, 22.10.2026)
 1. Studie zur Datenreduktion (Feature-Selektion/PCA) inkl. Trade-off-Analyse "Qualität vs. Input"
 2. Bonus: Feature-Importance/Explainability (SHAP o. ä.) für die M2-Gewinnermodelle (HistGradientBoosting)
-3. Modellierungsstrategien vergleichen: hierarchisch vs. gemeinsame Zielklasse vs. separate Modelle (bisher weiterhin zwei separate Modelle) — siehe offene Entscheidungen
+3. Modellierungsstrategien: separat vs. gemeinsames Label ist in M2 verglichen (gemeinsames MLP > separate MLPs, für Stage bleibt separates HGB vorne); offen sind hierarchisch und ein gemeinsames HGB
 4. Resampling-Strategien für `rice`/`Harvest`-Kombinationen prüfen (bisher nur `class_weight`)
 
 ## Offene Entscheidungen
