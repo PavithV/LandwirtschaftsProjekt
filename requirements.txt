@@ -1,6 +1,6 @@
 pandas
 numpy
-scikit-learn
+scikit-learn>=1.9  # 1.8 bricht bei MLP mit early_stopping=True und Text-Labels ab
 matplotlib
 jupyter
 shap
