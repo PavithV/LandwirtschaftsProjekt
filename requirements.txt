@@ -2,6 +2,7 @@ pandas
 numpy
 scikit-learn>=1.9  # 1.8 bricht bei MLP mit early_stopping=True und Text-Labels ab
 matplotlib
-seaborn  # pipeline/src/eda.py
+seaborn  # pipeline/src/eda.py und EDA im Notebook
+plotly  # interaktiver Spektralplot in der EDA
 jupyter
 shap
