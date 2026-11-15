@@ -5,12 +5,12 @@ _Stand: 2026-09-29_
 ## Problemverständnis
 Ziel ist die zweistufige Klassifikation landwirtschaftlicher Kulturpflanzen anhand hyperspektraler Satellitendaten (EO-1 Hyperion): zunächst die Crop-Art (corn, soybean, winter_wheat, cotton, rice), anschließend das Growing Stage innerhalb dieser Crop-Klasse (Critical, Emerge_VEarly, Mature_Senesc, Early_Mid, Late, Harvest). Die Herausforderung liegt in der hohen Dimensionalität der Spektralbänder, teilweise unbrauchbaren Bändern und einer stark unausgeglichenen Klassenverteilung.
 
-## Data Understanding (siehe `eda.ipynb`)
+## Data Understanding (siehe `archive/eda.ipynb`)
 - `train.csv`: 5591 Zeilen, 198 Spektralband-Spalten (`X427`…`X2395`) plus `AEZ`, `Month`, `Crop`, `Stage`.
 - **67 von 198 Spektralband-Spalten sind zu 100 % leer.** Die betroffenen Wellenlängenbereiche (~925–973nm, ~1104–1165nm, ~1326–1508nm, ~1770–2052nm, ~2355–2395nm) entsprechen bekannten Wasserdampf-Absorptionsbereichen bzw. verrauschten SWIR-Randbereichen des Hyperion-Sensors — fachlich plausibel unbrauchbar.
 - Nur 6 Spalten haben vereinzelt fehlende Werte (<0,5 % je Spalte); jede Zeile hat mindestens einen NaN-Wert, zeilenweises Löschen ist daher keine Option.
 - Klassenverteilung ist unausgeglichen: Crop (corn 2097, soybean 1669, winter_wheat 1073, cotton 659, rice 93), Stage (Critical 1541, Emerge_VEarly 1038, Mature_Senesc 989, Early_Mid 982, Late 861, Harvest 180).
-- Die mittleren Spektralsignaturen unterscheiden sich sichtbar zwischen den Crops (siehe Plot in `eda.ipynb`) — die Klassifikationsaufgabe ist auf Basis der Bänder grundsätzlich lösbar.
+- Die mittleren Spektralsignaturen unterscheiden sich sichtbar zwischen den Crops (siehe Plot in `archive/eda.ipynb`) — die Klassifikationsaufgabe ist auf Basis der Bänder grundsätzlich lösbar.
 
 ## Preprocessing-Entscheidungen
 - Die 67 komplett leeren Spektralband-Spalten werden **verworfen**, nicht imputiert (kein Informationsgehalt, würde reine Rauschwerte einbringen).
@@ -27,7 +27,7 @@ Für die Baseline wurde die einfachste in der Aufgabenstellung genannte Variante
 | Crop  | 0.778 | 0.810 |
 | Stage | 0.769 | 0.788 |
 
-Beide Baseline-Modelle liegen deutlich über dem Zufallsniveau (Crop: 5 Klassen → 20 % Zufall; Stage: 6 Klassen → 16,7 % Zufall) und bestätigen, dass die Spektralbänder eine tragfähige Grundlage für beide Klassifikationsaufgaben bieten. Details und Confusion Matrices in `baseline_model.ipynb`.
+Beide Baseline-Modelle liegen deutlich über dem Zufallsniveau (Crop: 5 Klassen → 20 % Zufall; Stage: 6 Klassen → 16,7 % Zufall) und bestätigen, dass die Spektralbänder eine tragfähige Grundlage für beide Klassifikationsaufgaben bieten. Details und Confusion Matrices in `archive/baseline_model.ipynb`.
 
 ## Limitationen & nächste Schritte (Meilenstein 2)
 - Kein Vergleich der Modellierungsstrategien (hierarchisch vs. gemeinsame Klasse vs. separate Modelle) — folgt in M2.

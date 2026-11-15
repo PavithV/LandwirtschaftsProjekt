@@ -10,13 +10,13 @@ _Stand: 2026-10-13_
 - Andere Split-Verhältnisse als 70/30 ausprobieren.
 - Cross-Validation / saubere Validierung statt einfachem Train/Test-Split.
 
-Details und Code: `milestone2_model.ipynb` (Laufzeit komplett ca. 35 Min. auf 4 Kernen; die Hyperparameter-Suche dominiert).
+Details und Code: `archive/milestone2_model.ipynb` (Laufzeit komplett ca. 35 Min. auf 4 Kernen; die Hyperparameter-Suche dominiert).
 
 ## Preprocessing-Entscheidungen (neu ggü. M1)
 
 **Spektral-Imputation:** Die 67 komplett leeren Spektralband-Spalten werden weiterhin verworfen. Für die verbleibenden 6 Spalten mit vereinzelten Lücken (max. 24 von 5591 Zeilen) ersetzen wir die globale Median-Imputation durch **zeilenweise lineare Interpolation entlang der Wellenlänge**: Da die Spaltennamen (`X<nm>`) die Wellenlänge kodieren und Reflektanzspektren glatt verlaufen, lässt sich eine fehlende Bande besser aus den benachbarten Bändern *derselben Messung* schätzen als aus dem Median über alle Messungen. Die Interpolation ist zeilenlokal → kein Leakage zwischen Train/Test. Ein `SimpleImputer(median)` bleibt als Absicherung in der Pipeline für etwaige Randfälle.
 
-**Feature Engineering** (übernommen und überarbeitet aus `features.ipynb`, plus eigene Red-Edge-/Seneszenz-Indizes): 22 zeilenlokale Spektral-Features + AEZ One-Hot.
+**Feature Engineering** (übernommen und überarbeitet aus `archive/features.ipynb`, plus eigene Red-Edge-/Seneszenz-Indizes): 22 zeilenlokale Spektral-Features + AEZ One-Hot.
 - Spektral-Statistiken (mean, std, max, min, Amplitude, Wellenlänge von Max/Min)
 - Vegetationsindizes NDVI, SR, NDMI, NBR, ND NIR2/SWIR1, EVI (auf Prozent-Reflektanz angepasst)
 - Gradienten (max. positive/negative Steigung, totale Variation), **pro nm** berechnet, damit die Lücken der entfernten Wasserbänder nicht dominieren

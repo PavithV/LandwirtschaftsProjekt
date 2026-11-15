@@ -2,7 +2,7 @@
 
 _Stand: 2026-10-16_
 
-Details und Code: `milestone3.ipynb`. Das Notebook ist die Fortsetzung von `milestone2_model_new.ipynb` (SVM-Notebook aus M2) und läuft komplett in ca. 15 Min. auf 8 Kernen. Ausgeführt mit Python 3.14, scikit-learn 1.9.1, shap 0.50. Voraussetzung ist `data/processed/cleaned_data.csv`, erzeugt mit `python pipeline/_run_pipeline.py`.
+Details und Code: `archive/milestone3.ipynb`. Das Notebook ist die Fortsetzung von `archive/milestone2_model_new.ipynb` (SVM-Notebook aus M2) und läuft komplett in ca. 15 Min. auf 8 Kernen. Ausgeführt mit Python 3.14, scikit-learn 1.9.1, shap 0.50. Voraussetzung ist `data/processed/cleaned_data.csv`, erzeugt mit `python pipeline/_run_pipeline.py`.
 
 ## Fragestellung und Vorgehen
 
