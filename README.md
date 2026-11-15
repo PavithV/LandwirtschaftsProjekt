@@ -39,7 +39,7 @@ Die Daten umfassen 5591 gelabelte Spektren mit 198 Bändern sowie Aufnahmemonat 
 | **Erwartung auf dem Validierungsdatensatz** | ≈ 0.92 (Crop) / ≈ 0.91 (Stage) |
 | **Abgabedatei** | [`test_predictions.csv`](test_predictions.csv) |
 
-Der Stand zur Abgabe am 31.10.2026 ist als Tag [`abgabe-2026-10-31`](https://github.com/PavithV/LandwirtschaftsProjekt/tree/abgabe-2026-10-31) gesichert.
+Der Stand zur Abgabe am 31.10.2026 (vor dem Aufräumen des Repos) ist Commit [`212907f`](https://github.com/PavithV/LandwirtschaftsProjekt/tree/212907f0ec789a9568eea99b459118ba56d3dbfc).
 
 ## 🧰 Tech-Stack
 
